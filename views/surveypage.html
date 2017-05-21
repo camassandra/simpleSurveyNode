@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
- <!--survet pahe with mandatory 
--gender (radio button), name, surname, email
+ <!--survey page with 
+-mandatory  gender (radio button), name, surname, email
 -non mandatory phone number
 - what is your country of origin (dropdown menu + input field)
 -for how long have you been living in Amsterdam: dropdown menu (1, 1-5 years, more than 10)
@@ -13,6 +13,47 @@ SEND to DATABASE button -->
 	<title> expat_survey</title>
 </head>
 <body>
+<h1>Know Your Expats - a Small Survey on the Foreign Talent Flow</h1>
+<h2> Please fill in all the mandatory fields. Note that most fields are required. </h2>
+<div id=fullForm align="center"> 
 
+<form action="/surveyhandler" method="post">
+        <fieldset>
+        	<div align="left">
+            	<p>Please enter your gender</p>
+				<input type="radio" name="group1" value="Man"> Man <br>
+				<input type="radio" name="group1" value="Woman" checked> Woman<br>
+				<input type="radio" name="group1" value="Neutral"> Prefers not to tell
+				
+			</div>
+			<hr>
+            <label for="1name">First Name:</label>
+            <input type="text" id="firstName" name="1name" placeholder="Enter your first name" required />
+
+            <label for="2name">Surname:</label>
+            <input type="text" id="SecondName" name="2name" placeholder="Enter your surname" required /> 
+            <hr>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="example@email.com" required />
+
+            <label for="phone">     Phone Number: <em>(optional)</em> </label>
+            <input type="tel" pattern='^[ -]*(\+31)?[ -]*[(0)]*[ -]*(6)[0-9]{8}' id="usertel" name="usertel" placeholder="pattern +31(0)612345678" />
+
+            <hr>
+
+            <label for="message">What are the two aspects of the Amsterdam working environment that you like the most?</label> <br>
+            <textarea id="message" rows='10' cols="100" placeholder="Example: the freelance(ZZP) rules, because... and the nice offices, because...."></textarea>
+            <hr>
+            
+            <input type="submit" value="Submit Answers" />
+
+        </fieldset>
+    </form>
+
+
+
+
+</div>
 </body>
 </html>
