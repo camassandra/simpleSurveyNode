@@ -11,43 +11,44 @@ what do you like abt nl
 SEND to DATABASE button -->
 <head>
 	<title> expat_survey</title>
+	<link type="text/css" href='css/main.css', rel='stylesheet' />
 	<meta charset="UTF-8">
-	<script type="text/javascript" src="jquery-3.2.1.min.js"></script>
-	<style type="text/css" href='css/main.css', rel='stylesheet'></style>
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+	
 </head>
 <body>
 <h1>Know Your Expats - a Small Survey on the Foreign Talent Flow</h1>
 <h2> Please fill in all the mandatory fields. Note that most fields are required. </h2>
-<div id=fullForm align="center"> 
+<div id='fullForm' align="center"> 
 
 <form action="/surveyhandler" method="post">
         <fieldset>
-        	<div align="left">
+        	<div align="center" id='gender-radio'>
             	<p>Please enter your gender</p>
-            	<select name="gender"> 
-				<input type="radio" name="gender" value="Man"> Man <br>
-				<input type="radio" name="gender" value="Woman" checked> Woman<br>
-				<input type="radio" name="gender" value="Neutral"> Prefers not to tell
-				</select>				
+            	
+				<input type="radio" name="gender" value="Man" tabindex="1"> Man <br>
+				<input type="radio" name="gender" value="Woman"> Woman<br>
+				<input type="radio" name="gender" value="Neutral" checked> Prefers not to tell
+								
 			</div>
 			<hr>
             <label for="1name">First Name:</label>
-            <input type="text" id="firstName" name="firstname" placeholder="Enter your first name" required />
+            <input type="text" id="firstName" name="firstname" placeholder="Enter your first name" required tabindex="2" />
 
             <label for="2name">Surname:</label>
-            <input type="text" id="SecondName" name="surname" placeholder="Enter your surname" required /> 
+            <input type="text" id="secondName" name="surname" placeholder="Enter your surname" required tabindex="3"/> 
             <hr>
 
             <label for="email">Email:</label>
-            <input type="email" id="email" name='email' placeholder="example@email.com" required />
+            <input type="email" id="useremail" name='email' placeholder="example@email.com" required tabindex="4"/>
 
             <label for="phone">     Phone Number: <em>(optional)</em> </label>
-            <input type="tel" pattern='^[ -]*(\+31)?[ -]*[(0)]*[ -]*(6)[0-9]{8}' id="usertel" name="usertel" placeholder="pattern +31(0)612345678" />
+            <input type="tel" pattern='^[ -]*(\+31)?[ -]*[(0)]*[ -]*(6)[0-9]{8}' id="usertel" name="usertel" placeholder="pattern +31(0)612345678" tabindex="5"/>
 
             <hr>
-            <div align="left">
+            <div id='nation' align="left">
             	<p>Please select your country of origin</p>
-				<select name="countryDrop">
+				<select name="countryDrop" tabindex="6">
 				<option value="AF">Afghanistan</option>
 				<option value="AX">Åland Islands</option>
 				<option value="AL">Albania</option>
@@ -145,7 +146,7 @@ SEND to DATABASE button -->
 				<option value="GY">Guyana</option>
 				<option value="HT">Haiti</option>
 				<option value="HM">Heard Island and McDonald Islands</option>
-				<option value="VA">Holy See (Vatican City State)</option>
+				<option value="VA" selected>Vatican City State</option>
 				<option value="HN">Honduras</option>
 				<option value="HK">Hong Kong</option>
 				<option value="HU">Hungary</option>
@@ -299,29 +300,40 @@ SEND to DATABASE button -->
 				<option value="ZW">Zimbabwe</option>
 				</select> 
 				<label for="1name">City of Origin:</label>
-            	<input type="text" id="firstName" name="1name" placeholder="Enter your first name" required /> <br>
+            	<input type="text" id="city" name="1name" placeholder="Enter name of your home city" required tabindex="7"/> <br>
 
 			</div> <br>
 
             <hr>
             <div>
             	<p>For how long have you been living in Amsterdam?</p>
-            	<select name="years" id="years">
-            	<option value='0'>Less than one year</option>
+            	<select name="years" id="years" tabindex="8">
+            	<option selected> Select an option</option>
+            	<option value='<1'>Less than one year</option>
             	<option value='1-3'>Between one and three years</option>
             	<option value="3-10">Between three and ten years</option>
-            	<option value="more10">More than ten years</option>
+            	<option value=">10">More than ten years</option>
             	</select>
             </div>
-
+            <hr>
+            <p>Choose your interests <em>(multiple choices possible)</em> </p>
+			  <div >
+			  <input type="checkbox" name="interest" value="coding"> Coding   
+				<input type="checkbox" name="interest" value="music"> Music    
+				<input type="checkbox" name="interest" value="photography"> Photography    
+	  
+			    <input type="checkbox" id="coding" name="interest" value="pets"> Pets
+			   
+			  </div>
+			  
 
             <hr>
 
             <label for="message">What are the two aspects of the Amsterdam working environment that you like the most?</label> <br>
-            <textarea id="message" rows='10' cols="100" placeholder="Example: the freelance(ZZP) rules, because... and the nice offices, because...."></textarea>
+            <textarea id="message" rows='10' cols="100" placeholder="Example: the freelance(ZZP) rules, because... and the nice offices, because...." required tabindex="9"></textarea>
             <hr>
             
-            <input type="submit" value="Submit Answers" />
+            <input type="submit" id='submitb' value="Submit Answers" tabindex="10"/>
 
         </fieldset>
     </form>
